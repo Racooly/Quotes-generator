@@ -14,12 +14,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1F2632;
+    background-color: #242424;
     font-family: 'Raleway', sans-serif;
 }
 .main{
     width: 540px;
-    background: #323A49;
+    background: #454545;
     border-radius: 15px;
     padding: 0px 38px;
 }

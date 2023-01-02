@@ -2,77 +2,46 @@ const adviceNum = document.getElementById('adviceNum')
 const quote = document.getElementById('quote')
 const button = document.getElementById('button')
 
-let quoteCount = 1
+let quoteCount = 0
 
-let advices = [`“Whatever you are, be a good one.”`,
+let advices = [
+`„ადამიანის უძვირფასესი საუნჯე მისი ვინაობაა.“`,
 
- `“Be yourself; everyone else is already taken.”`,
+`„ავი კაცი რამდენადაც მეცნიერია, დიდი სწავული, იმოდენად უფრო ძლიერ საშიშია, უფრო ძლიერ მავნებელია.“`,
 
-  `“Every man dies. Not every man lives.”`,
+`„არამც თუ უსაბუთო ძაგება, უსაბუთო ქებაც კი საწყენია მართებულის კაცისათვის.“`,
 
- `“Nothing is impossible. The word itself says “I’m possible!”`,
- 
- `“Happiness depends upon ourselves.” `, `“If you look at what you have in life, you’ll always have more.”`,
+`„ზოგი საგანია, რომ თუ არ დაინახავ, ვერ ირწმუნებ, და ზოგი – იმისთანა, თუ არ ირწმუნებ, ვერ დაინახავ.“`,
 
- `“Live every day like it's your last, one day you will be right.”`, `“It is never too late to be what you might have been.”`, 
+`„მხოლოდ წარსულის ცოდნით დაუცავს ყოველს ერს თავისი ეროვნება, თავისი არსებობა, თავისი ვინაობა.“`,
 
- `“Strong minds discuss ideas. Average minds discuss events. Weak minds discuss people”`,
+`„ვინც კარგად ემსახურება სამშობლო ქვეყანას, იგი უდიდგვაროდაც დიდია.“`,
 
-  `“Time is a created thing. To say: "I don't have time" is like saying: "I don't want to."”`,
+`„აწმყოს, რომელსაც წარსული არ აქვს, არც მომავალი აქვს.“`,
 
-  `“Smart people learn from everything and everyone. Average people from their experiences. Stupid people already have all the answers.”`,
+`„ქვეყანა ტაძარი კი არაა, საცა კაცი უნდა ლოცულობდეს, არამედ სახელოსნოა, საცა უნდა ირჯებოდეს და მუშაობდეს!“`,
 
-  `“It is never too late to be what you might have been.”`,
+`„ადამიანის გული თვალუწვდენელი ორმოა.“`,
 
-  `"Always respect your superiors; if you have any."`,
+`„გახსოვდეს, რომ ქვეყანაზე ქაღალდის გარდა არის კიდევ სინდისი.“`,
 
-  `“If you want to find the secrets of the universe, think in terms of energy, frequency and vibration.”`,
+`„ბედს თვითონ კაცი ქმნის და არა ბედი კაცსა.“`,
 
-  `“I don’t care that they stole my idea …  I care that they don’t have any of their own.”`,
+`„ქვეყანაზე, რომ ჭირი არ იყოს, ადამიანი ენასაც არ ამოიდგამდა.“`,
 
-  `“Life can be wonderful if you're not afraid of it. All it needs is courage, imagination ... and a little dough.”`,
+`„ქვეყნის სამსახური ყველგან მსხვერპლია და არა სეირი.“`,
 
-  `“You'll never find rainbows if you're looking down.”`,
+`„მეზობლის უბედურებაზე ჩვენი ბედნიერება ვერ დაფუძნდება.“`,
 
-  `“Perfect love is the most beautiful of all frustrations because it is more than one can express.”`,
+`„ღობე-ყორეს მოდება ღალატია საქმისა.“`,
 
-  `“Life is a beautiful, magnificent thing, even to a jellyfish.”`,
+`„რასაც თვითონ არ ვიმოქმედებთო, სხვისგან ბევრს ნურას ველოდებითო.“`,
 
-  `“Nothing is permanent in this wicked world - not event our troubles.”`,
-  
-  `“If you're really truthful with yourself, it's a wonderful guidance.”`,
+`„კმაყოფილება კაცის მომაკვდინებელი სენია.“`,
 
-  `„ადამიანის უძვირფასესი საუნჯე მისი ვინაობაა.“`,
+`„ქვეყანა იმით კი არ არის უბედური, რომ ღარიბია, არამედ იმით, რომ მცოდნე, გონებაგახსნილი, გულანთებული კაცები არა ჰყავს.“`,
 
-  `„არამც თუ უსაბუთო ძაგება, უსაბუთო ქებაც კი საწყენია მართებულის კაცისათვის.“`,
-
-  `„ზოგი საგანია, რომ თუ არ დაინახავ, ვერ ირწმუნებ, და ზოგი იმისთანა, თუ არ ირწმუნებ, ვერ დაინახავ.“`,
-
-  `„ზოგი საგანია, რომ თუ არ დაინახავ, ვერ ირწმუნებ, და ზოგი იმისთანა, თუ არ ირწმუნებ, ვერ დაინახავ.“`,
-
-  `„ზოგი საგანია, რომ თუ არ დაინახავ, ვერ ირწმუნებ, და ზოგი იმისთანა, თუ არ ირწმუნებ, ვერ დაინახავ.“`,
-
-  `„ქვეყანა ტაძარი კი არაა, საცა კაცი უნდა ლოცულობდეს, არამედ სახელოსნოა, საცა უნდა ირჯებოდეს და მუშაობდეს!“`,
-
-  `„ადამიანის გული თვალუწვდენელი ორმოა.“`,
-
-  `„გახსოვდეს, რომ ქვეყანაზე ქაღალდის გარდა არის კიდევ სინდისი.“`,
-
-  `„ბედს თვითონ კაცი ქმნის და არა ბედი კაცსა.“`,
-
-  `„ქვეყნის სამსახური ყველგან მსხვერპლია და არა სეირი.“`,
-
-  `„ქვეყნის სამსახური ყველგან მსხვერპლია და არა სეირი.“`,
-
-  `„რასაც თვითონ არ ვიმოქმედებთო, სხვისგან ბევრს ნურას ველოდებითო.“`,
-
-  `„შენ რომ ცუდკაცობდე, კაიკაცობაზედ სხვას მაინც ნუ გალანძღავ.“`,
-
-  `„წარსული მკვიდრი საძირკველია აწმყოსი, როგორც აწმყო მომავლისა.“`,
-
-  `„კარგია გაღვიძებული ადამიანი, მაგრამ უფრო უკეთესია ადამიანი, რომელსაც ძილშიაც არა სძინავს, ქვეყნის უბედურებით გულ-აღტკინებულსა.“`,
-
-  `„ლუკმა მაშინ არის ტკბილი, როცა კაი კაცობით არის ნაშოვნი.“`,
+`„შენ რომ ცუდკაცობდე, კაიკაცობაზედ სხვას მაინც ნუ გალანძღავ.“`,
 ]
 button.addEventListener('click', ()=>{
     let random = Math.floor(Math.random()*advices.length)
